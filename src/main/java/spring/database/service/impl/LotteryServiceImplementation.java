@@ -60,7 +60,7 @@ public class LotteryServiceImplementation implements LotteryService {
         for(String serial : tipMap.keySet()){ // Map-ban felsorolt kulcsok halmaza
             Set<Integer> tip = tipMap.get(serial);
             try {
-                this.lotto.validate(tip, this.winNumbers);
+                this.lotto.validate(tip, currentWinNumbers);
                 if (result < this.lottoTypeProvider.getLottoType().getLessWin()) {
                     System.out.println(MessageFormat.format(" A {0} sorszámú lottószelvényen nem nyert", serial);
                 } else {
@@ -69,6 +69,8 @@ public class LotteryServiceImplementation implements LotteryService {
             } catch (InvalidLottoTipException e) {
                 System.out.println(MessageFormat.format(" A {0} sorszámú lottószelvény érvénytelen", serial));
                 // e.printStackTrace();
+            } catch (InvalidLottoNumberCountException e) {
+                e.printStackTrace();
             }
         }
     }

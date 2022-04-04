@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import spring.database.config.LottoTypeConsumer;
 import spring.database.model.impl.LottoType;
+import spring.database.service.LotteryService;
+import spring.database.service.impl.LotteryServiceImplementation;
 
 import java.text.MessageFormat;
 
@@ -21,7 +23,7 @@ public class LottoApplication {
 		LottoTypeConsumer lottoTypeConsumer = context.getBean(LottoTypeConsumer.class);
 		if(args.length!=0) {
 			lottoTypeConsumer.setLottoType(getLottoType(args[0]));
-		}else lottoTypeConsumer.setLottoType(LottoType.Five);
+		} else lottoTypeConsumer.setLottoType(LottoType.Five);
+		LotteryService lotteryService = context.getBean(LotteryService.class);
 	}
-
 }
