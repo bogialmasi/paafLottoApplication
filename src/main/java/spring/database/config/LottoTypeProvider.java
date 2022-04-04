@@ -1,4 +1,4 @@
-package hu.nyirszikszi.lotto.config;
+package spring.database.config;
 
 
 import spring.database.model.impl.LottoType;
