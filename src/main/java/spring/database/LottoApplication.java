@@ -9,6 +9,7 @@ import spring.database.service.LotteryService;
 import spring.database.service.impl.LotteryServiceImplementation;
 
 import java.text.MessageFormat;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class LottoApplication {
@@ -25,5 +26,7 @@ public class LottoApplication {
 			lottoTypeConsumer.setLottoType(getLottoType(args[0]));
 		} else lottoTypeConsumer.setLottoType(LottoType.Five);
 		LotteryService lotteryService = context.getBean(LotteryService.class);
+		lotteryService.getTips(Arrays.asList(3, 4, 5, 6, 7));
+		lotteryService.getTips(Arrays.asList(3, 4, 5, 6, 7, 8));
 	}
 }
