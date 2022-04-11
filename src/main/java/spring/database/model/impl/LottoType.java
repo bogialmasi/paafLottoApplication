@@ -14,6 +14,7 @@ public enum LottoType {
         this.lessWin = lessWin;
     }
 
+
     public static LottoType fromInteger(Integer value){
         switch (value){
             case 5 : return LottoType.Five;
